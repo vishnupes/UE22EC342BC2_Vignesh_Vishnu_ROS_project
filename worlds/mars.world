@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="mars">
+    <physics type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>1000.0</real_time_update_rate>
+      <gravity>0 0 -3.711</gravity>
+    </physics>
+
+    <scene>
+      <ambient>0.8 0.4 0.2 1.0</ambient>
+      <background>0.8 0.4 0.2 1.0</background>
+      <sky><clouds><speed>12</speed></clouds></sky>
+    </scene>
+
+    <!-- big flat plane -->
+    <model name="mars_ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane><normal>0 0 1</normal><size>100 100</size></plane>
+          </geometry>
+          <surface>
+        <friction>
+          <ode>
+            <mu>200</mu>    <!-- lateral friction -->
+            <mu2>200</mu2>   <!-- spinning friction -->
+          </ode>
+        </friction>
+      </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane><normal>0 0 1</normal><size>100 100</size></plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.36 0.36 1</ambient>
+            <diffuse>0.8 0.36 0.36 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- BIGGER, MORE SPREAD craters: radius 0.7–1.0, rim 0.1m above ground -->
+    <!-- center_z = -(radius - 0.1) -->
+    <model name="crater_1">
+      <static>true</static><link name="l">
+        <collision name="c"><pose> 3.0  1.0 -0.90 0 0 0</pose>
+          <geometry><sphere><radius>1.0</radius></sphere></geometry>
+        </collision>
+        <visual name="v"><pose> 3.0  1.0 -0.90 0 0 0</pose>
+          <geometry><sphere><radius>1.0</radius></sphere></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Red</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="crater_2">
+      <static>true</static><link name="l">
+        <collision name="c"><pose>-3.5  2.5 -0.75 0 0 0</pose>
+          <geometry><sphere><radius>0.85</radius></sphere></geometry>
+        </collision>
+        <visual name="v"><pose>-3.5  2.5 -0.75 0 0 0</pose>
+          <geometry><sphere><radius>0.85</radius></sphere></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Red</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="crater_3">
+      <static>true</static><link name="l">
+        <collision name="c"><pose> 1.5 -3.0 -0.60 0 0 0</pose>
+          <geometry><sphere><radius>0.70</radius></sphere></geometry>
+        </collision>
+        <visual name="v"><pose> 1.5 -3.0 -0.60 0 0 0</pose>
+          <geometry><sphere><radius>0.70</radius></sphere></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Red</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="crater_4">
+      <static>true</static><link name="l">
+        <collision name="c"><pose>-2.0 -4.0 -0.80 0 0 0</pose>
+          <geometry><sphere><radius>0.90</radius></sphere></geometry>
+        </collision>
+        <visual name="v"><pose>-2.0 -4.0 -0.80 0 0 0</pose>
+          <geometry><sphere><radius>0.90</radius></sphere></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Red</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="crater_5">
+      <static>true</static><link name="l">
+        <collision name="c"><pose> 4.5 -2.0 -0.65 0 0 0</pose>
+          <geometry><sphere><radius>0.75</radius></sphere></geometry>
+        </collision>
+        <visual name="v"><pose> 4.5 -2.0 -0.65 0 0 0</pose>
+          <geometry><sphere><radius>0.75</radius></sphere></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Red</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="crater_6">
+      <static>true</static><link name="l">
+        <collision name="c"><pose>-4.0 -1.0 -0.90 0 0 0</pose>
+          <geometry><sphere><radius>1.00</radius></sphere></geometry>
+        </collision>
+        <visual name="v"><pose>-4.0 -1.0 -0.90 0 0 0</pose>
+          <geometry><sphere><radius>1.00</radius></sphere></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Red</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="crater_7">
+      <static>true</static><link name="l">
+        <collision name="c"><pose> 2.5  4.0 -0.65 0 0 0</pose>
+          <geometry><sphere><radius>0.75</radius></sphere></geometry>
+        </collision>
+        <visual name="v"><pose> 2.5  4.0 -0.65 0 0 0</pose>
+          <geometry><sphere><radius>0.75</radius></sphere></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Red</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="crater_8">
+      <static>true</static><link name="l">
+        <collision name="c"><pose>-5.0  3.5 -0.80 0 0 0</pose>
+          <geometry><sphere><radius>0.90</radius></sphere></geometry>
+        </collision>
+        <visual name="v"><pose>-5.0  3.5 -0.80 0 0 0</pose>
+          <geometry><sphere><radius>0.90</radius></sphere></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Red</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- TWELVE larger rocks, ~0.2–0.4m radius, spread out -->
+    <model name="rock_1"><static>true</static><link name="l"><pose> 1.0  1.0 0 0 0 0</pose><geometry><sphere><radius>0.20</radius></sphere></geometry></link></model>
+    <model name="rock_2"><static>true</static><link name="l"><pose>-1.2  0.8 0 0 0 0</pose><geometry><sphere><radius>0.25</radius></sphere></geometry></link></model>
+    <model name="rock_3"><static>true</static><link name="l"><pose> 0.5 -1.5 0 0 0 0</pose><geometry><sphere><radius>0.22</radius></sphere></geometry></link></model>
+    <model name="rock_4"><static>true</static><link name="l"><pose>-0.7 -1.8 0 0 0 0</pose><geometry><sphere><radius>0.28</radius></sphere></geometry></link></model>
+    <model name="rock_5"><static>true</static><link name="l"><pose> 2.5  0.0 0 0 0 0</pose><geometry><sphere><radius>0.30</radius></sphere></geometry></link></model>
+    <model name="rock_6"><static>true</static><link name="l"><pose>-2.5  0.5 0 0 0 0</pose><geometry><sphere><radius>0.35</radius></sphere></geometry></link></model>
+    <model name="rock_7"><static>true</static><link name="l"><pose> 3.0 -2.0 0 0 0 0</pose><geometry><sphere><radius>0.24</radius></sphere></geometry></link></model>
+    <model name="rock_8"><static>true</static><link name="l"><pose>-3.0 -2.2 0 0 0 0</pose><geometry><sphere><radius>0.26</radius></sphere></geometry></link></model>
+    <model name="rock_9"><static>true</static><link name="l"><pose> 4.5  1.5 0 0 0 0</pose><geometry><sphere><radius>0.32</radius></sphere></geometry></link></model>
+    <model name="rock_10"><static>true</static><link name="l"><pose>-4.5  2.0 0 0 0 0</pose><geometry><sphere><radius>0.34</radius></sphere></geometry></link></model>
+    <model name="rock_11"><static>true</static><link name="l"><pose> 5.0 -1.0 0 0 0 0</pose><geometry><sphere><radius>0.28</radius></sphere></geometry></link></model>
+    <model name="rock_12"><static>true</static><link name="l"><pose>-5.0 -1.5 0 0 0 0</pose><geometry><sphere><radius>0.30</radius></sphere></geometry></link></model>
+
+    <include><uri>model://sun</uri></include>
+  </world>
+</sdf>
